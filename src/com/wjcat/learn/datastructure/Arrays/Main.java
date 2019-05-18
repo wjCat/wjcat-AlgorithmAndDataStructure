@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         ArrayList arr = new ArrayList(20);
-        for(int i = 0 ; i < 10 ; i ++)
+        for(int i = 0 ; i < 40 ; i ++)
             arr.addLast(i);
         System.out.println(arr);
 
@@ -26,6 +26,11 @@ public class Main {
 
         arr.removeFirst();
         System.out.println(arr);
+
+        for(int i = 0 ; i < 39 ; i ++){
+            arr.removeFirst();
+            System.out.println(arr);
+        }
     }
 
 }

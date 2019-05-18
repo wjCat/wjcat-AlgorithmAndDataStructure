@@ -25,12 +25,13 @@ public class LoopQueue<E> implements Queue<E> {
 
     @Override
     public int getSize() {
-        if (tail < front)
-            return this.tail + 1 + this.data.length - this.front;
-        else if (this.tail > this.front)
-            return this.tail - this.front;
-        else
-            return 0;
+//        if (tail < front)
+//            return this.tail + 1 + this.data.length - this.front;
+//        else if (this.tail > this.front)
+//            return this.tail - this.front;
+//        else
+//            return 0;
+        return this.tail >= this.front ? this.tail - this.front : this.tail - this.front + this.data.length;
     }
 
     @Override

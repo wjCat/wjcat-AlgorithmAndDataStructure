@@ -15,6 +15,10 @@ public class Main {
         Random random = new Random();
         for(int i = 0 ; i < opCount ; i ++)
             q.enqueue(random.nextInt(Integer.MAX_VALUE));
+        for(int i = 0 ; i < opCount / 2 ; i ++)
+            q.dequeue();
+        for(int i = 0 ; i < opCount / 2 ; i ++)
+            q.enqueue(random.nextInt(Integer.MAX_VALUE));
         for(int i = 0 ; i < opCount ; i ++)
             q.dequeue();
 

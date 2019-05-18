@@ -19,6 +19,7 @@ public class ArrayList<E> {
 
     /**
      * 获取元素个数
+     *
      * @return 元素个数
      */
     public int getSize() {
@@ -27,6 +28,7 @@ public class ArrayList<E> {
 
     /**
      * 获取数组容量
+     *
      * @return 数组容量
      */
     public int getCapacity() {
@@ -35,6 +37,7 @@ public class ArrayList<E> {
 
     /**
      * 数组是否为空
+     *
      * @return boolean
      */
     public boolean isEmpty() {
@@ -43,6 +46,7 @@ public class ArrayList<E> {
 
     /**
      * 在数组尾部添加元素
+     *
      * @param element 元素对象
      */
     public void addLast(E element) {
@@ -51,6 +55,7 @@ public class ArrayList<E> {
 
     /**
      * 在数组头部添加元素
+     *
      * @param element 元素对象
      */
     public void addFirst(E element) {
@@ -59,16 +64,17 @@ public class ArrayList<E> {
 
     /**
      * 添加元素
-     * @param index 索引
+     *
+     * @param index   索引
      * @param element 元素对象
      */
     public void add(int index, E element) {
 
-        if (this.size == this.data.length)
-            throw new IllegalArgumentException("Add failed. Array is full.");
-
         if (index < 0 || index > this.size)
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
+
+        if (this.size == this.data.length)
+            this.resize(2 * this.data.length);
 
         System.arraycopy(this.data, index, this.data, index + 1, this.size - index);
         this.data[index] = element;
@@ -77,6 +83,7 @@ public class ArrayList<E> {
 
     /**
      * 获取元素
+     *
      * @param index 索引
      * @return 元素对象
      */
@@ -88,7 +95,8 @@ public class ArrayList<E> {
 
     /**
      * 设置元素
-     * @param index 索引
+     *
+     * @param index   索引
      * @param element 元素对象
      */
     public void set(int index, E element) {
@@ -99,6 +107,7 @@ public class ArrayList<E> {
 
     /**
      * 判断是否包含该元素
+     *
      * @param element 元素对象
      * @return boolean
      */
@@ -111,6 +120,7 @@ public class ArrayList<E> {
 
     /**
      * 查找元素
+     *
      * @param element 元素对象
      * @return 索引
      */
@@ -123,20 +133,28 @@ public class ArrayList<E> {
 
     /**
      * 删除元素
+     *
      * @param index 索引
      * @return 元素对象
      */
     public E remove(int index) {
         if (index < 0 || index >= this.size)
             throw new IllegalArgumentException("Remove failed. Index is illegal.");
+
         E element = this.data[index];
         System.arraycopy(this.data, index + 1, this.data, index, this.size - index);
         this.size--;
+        this.data[this.size] = null;
+
+        if (this.size == this.data.length / 4 && this.data.length / 2 != 0)
+            resize(this.data.length / 2);
+
         return element;
     }
 
     /**
      * 删除数组第一个元素
+     *
      * @return 元素对象
      */
     public E removeFirst() {
@@ -145,6 +163,7 @@ public class ArrayList<E> {
 
     /**
      * 删除数组最后一个元素
+     *
      * @return 元素对象
      */
     public E removeLast() {
@@ -153,6 +172,7 @@ public class ArrayList<E> {
 
     /**
      * 删除元素
+     *
      * @param element 元素对象
      */
     public void removeElement(E element) {
@@ -173,5 +193,11 @@ public class ArrayList<E> {
         }
         res.append(']');
         return res.toString();
+    }
+
+    private void resize(int capacity) {
+        E[] data = (E[]) new Object[capacity];
+        System.arraycopy(this.data, 0, data, 0, this.size);
+        this.data = data;
     }
 }

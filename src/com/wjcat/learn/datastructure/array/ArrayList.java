@@ -1,4 +1,4 @@
-package com.wjcat.learn.datastructure.Arrays;
+package com.wjcat.learn.datastructure.array;
 
 /**
  * Created by 厕所里拉屎的猫 on 2019/5/17.
@@ -91,6 +91,22 @@ public class ArrayList<E> {
         if (index < 0 || index >= this.size)
             throw new IllegalArgumentException("Get failed. Index is illegal.");
         return this.data[index];
+    }
+
+    /**
+     * 获取头部元素
+     * @return 元素对象
+     */
+    public E getFirst() {
+        return this.get(0);
+    }
+
+    /**
+     * 获取尾部元素
+     * @return 元素对象
+     */
+    public E getLast() {
+        return this.get(this.size - 1);
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.wjcat.learn.datastructure.Arrays;
+package com.wjcat.learn.datastructure.array;
 
 /**
  * Created by 厕所里拉屎的猫 on 2019/5/17.

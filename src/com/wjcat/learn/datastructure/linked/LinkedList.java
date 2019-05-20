@@ -106,7 +106,7 @@ public class LinkedList<E> {
         pre.element = element;
     }
 
-    public boolean contains(E element){
+    public boolean contains(E element) {
         Node node = this.dummyHead.next;
         while (node.next != null)
             if (node.element.equals(element))
@@ -116,10 +116,52 @@ public class LinkedList<E> {
         return false;
     }
 
+    public E remove(int index) {
+        if (index < 0 || index >= this.size)
+            throw new IllegalArgumentException("Remove failed. Index is illegal.");
+        Node pre = this.dummyHead;
+        for (int i = 0; i < index; i++)
+            pre = pre.next;
+
+        Node deleteNode = pre.next;
+        pre.next = deleteNode.next;
+        deleteNode.next = null;
+        this.size--;
+
+        return deleteNode.element;
+    }
+
+    public E removeFirst() {
+        return this.remove(0);
+    }
+
+    public E removeLast() {
+        return this.remove(this.size - 1);
+    }
+
+    public void removeElement(E element) {
+
+        Node pre = this.dummyHead;
+
+        while (pre.next != null)
+            if (pre.next.element.equals(element))
+                break;
+            else
+                pre = pre.next;
+
+        Node deleteNode = pre.next;
+        if (deleteNode != null) {
+            pre.next = deleteNode.next;
+            deleteNode.next = null;
+            this.size--;
+        }
+
+    }
+
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder res = new StringBuilder();
-        for(Node cur = dummyHead.next ; cur != null ; cur = cur.next)
+        for (Node cur = dummyHead.next; cur != null; cur = cur.next)
             res.append(cur + "->");
         res.append("NULL");
 

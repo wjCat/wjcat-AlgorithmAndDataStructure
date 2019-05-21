@@ -3,6 +3,7 @@ package com.wjcat.learn.datastructure.queue;
 import java.util.Random;
 
 /**
+ * @Description Main测试
  * Created by 厕所里拉屎的猫 on 2019/5/18.
  */
 public class Main {

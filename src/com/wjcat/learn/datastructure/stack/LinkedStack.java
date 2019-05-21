@@ -3,10 +3,8 @@ package com.wjcat.learn.datastructure.stack;
 import com.wjcat.learn.datastructure.linked.LinkedList;
 
 /**
- * @ClassName LinkedStack
- * @Description TODO
- * @Author yupeijiang
- * @Date 2019/5/20
+ * @Description 链表栈
+ * Created by 厕所里拉屎的猫 on 2019/5/20.
  */
 public class LinkedStack<E> implements Stack<E> {
 

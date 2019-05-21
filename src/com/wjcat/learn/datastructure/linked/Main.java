@@ -1,6 +1,7 @@
 package com.wjcat.learn.datastructure.linked;
 
 /**
+ * @Description Main测试
  * Created by 厕所里拉屎的猫 on 2019/5/19.
  */
 public class Main {

@@ -3,6 +3,7 @@ package com.wjcat.learn.datastructure.queue;
 import com.wjcat.learn.datastructure.array.ArrayList;
 
 /**
+ * @Description 数组队列
  * Created by 厕所里拉屎的猫 on 2019/5/18.
  */
 public class ArrayQueue<E> implements Queue<E> {

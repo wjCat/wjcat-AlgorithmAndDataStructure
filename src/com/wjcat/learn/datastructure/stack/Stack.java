@@ -1,6 +1,7 @@
 package com.wjcat.learn.datastructure.stack;
 
 /**
+ * @Description 栈（接口）
  * Created by 厕所里拉屎的猫 on 2019/5/18.
  */
 public interface Stack<E> {

@@ -1,6 +1,7 @@
 package com.wjcat.learn.datastructure.queue;
 
 /**
+ * @Description 循环数组队列
  * Created by 厕所里拉屎的猫 on 2019/5/18.
  */
 public class LoopQueue<E> implements Queue<E> {

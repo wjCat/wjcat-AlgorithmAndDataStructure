@@ -1,6 +1,7 @@
 package com.wjcat.learn.datastructure.queue;
 
 /**
+ * @Description 队列（接口）
  * Created by 厕所里拉屎的猫 on 2019/5/18.
  */
 public interface Queue<E> {

@@ -1,10 +1,8 @@
 package com.wjcat.learn.datastructure.queue;
 
 /**
- * @ClassName LinkedQueue
- * @Description TODO
- * @Author yupeijiang
- * @Date 2019/5/20
+ * @Description 链表队列
+ * Created by 厕所里拉屎的猫 on 2019/5/20.
  */
 public class LinkedQueue<E> implements Queue<E> {
 

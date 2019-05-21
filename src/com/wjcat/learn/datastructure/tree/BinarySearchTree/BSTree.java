@@ -7,7 +7,7 @@ import java.util.Queue;
  * @Description 二分搜索树
  * Created by 厕所里拉屎的猫 on 2019/5/20.
  */
-public class BST<E extends Comparable<E>> {
+public class BSTree<E extends Comparable<E>> {
 
     private class Node {
         E element;
@@ -21,7 +21,7 @@ public class BST<E extends Comparable<E>> {
     private Node root;
     private int size;
 
-    public BST() {
+    public BSTree() {
         this.root = null;
         this.size = 0;
     }
@@ -206,7 +206,7 @@ public class BST<E extends Comparable<E>> {
      */
     public E minimum() {
         if (this.size == 0)
-            throw new IllegalArgumentException("BST is empty");
+            throw new IllegalArgumentException("BSTree is empty");
 
         return this.minimum(this.root).element;
     }
@@ -232,7 +232,7 @@ public class BST<E extends Comparable<E>> {
      */
     public E maximum() {
         if (size == 0)
-            throw new IllegalArgumentException("BST is empty");
+            throw new IllegalArgumentException("BSTree is empty");
 
         return maximum(root).element;
     }

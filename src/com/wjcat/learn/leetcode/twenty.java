@@ -1,7 +1,5 @@
 package com.wjcat.learn.leetcode;
 
-import java.util.Stack;
-
 import com.wjcat.learn.datastructure.stack.ArrayStack;
 
 /**

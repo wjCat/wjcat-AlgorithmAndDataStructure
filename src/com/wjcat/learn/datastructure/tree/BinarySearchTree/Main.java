@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BST<Integer> bst = new BST<>();
+        BSTree<Integer> bst = new BSTree<>();
         Random random = new Random();
 
         int n = 1000;

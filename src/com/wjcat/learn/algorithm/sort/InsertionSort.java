@@ -1,10 +1,13 @@
-package com.wjcat.learn.algorithm;
+package com.wjcat.learn.algorithm.sort;
 
 /**
- * @Description 选择排序
+ * @Description 插入排序
+ * <p>
+ * 每次都将当前元素插入到左侧已经排序的数组中，使得插入之后左侧数组依然有序。
+ * <p>
  * Created by 厕所里拉屎的猫 on 2019/5/15.
  */
-public class InsertionSort<E extends Comparable> {
+public class InsertionSort<E extends Comparable<E>> extends Sort<E> {
 
     /**
      * 将传入的数组进行顺序排序
@@ -71,6 +74,7 @@ public class InsertionSort<E extends Comparable> {
     /**
      * 习题2.1-3：在数组array中寻找元素v，若不存在则返回nil>>(-1)
      * 注：线性查找
+     *
      * @param array
      * @param v
      * @return
@@ -82,6 +86,18 @@ public class InsertionSort<E extends Comparable> {
                 i = j;
         }
         return i;
+    }
+
+    @Override
+    public String sort(E[] array) {
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i; j > 0 && less(array[j], array[j - 1]); j--) {
+                swap(array, j, j - 1);
+            }
+        }
+        long endTime = System.currentTimeMillis();
+        return (endTime - startTime) + "ms";
     }
 
 }

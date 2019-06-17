@@ -1,10 +1,10 @@
-package com.wjcat.learn.algorithm;
+package com.wjcat.learn.algorithm.sort.MergeSort;
 
 /**
- * @Description 归并排序
- * Created by 厕所里拉屎的猫 on 2019/5/15.
+ * @decription @TODO
+ * Created by 厕所里拉屎的猫 on 2019/6/17.
  */
-public class MergeSort<E extends Comparable> {
+public class MyStrangeMergeSort<E extends Comparable<E>> {
 
     public void sort(E[] array) {
         mergeSort(array, 0, array.length - 1);

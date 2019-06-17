@@ -198,6 +198,27 @@ public class ArrayList<E> {
             this.remove(index);
     }
 
+    /**
+     * 调换传入的两个索引的值
+     * @param i 索引1
+     * @param j 索引2
+     */
+    public void swap(int i, int j){
+
+        if(i < 0 || i >= size || j < 0 || j >= size)
+            throw new IllegalArgumentException("Index is illegal.");
+
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
+    }
+
+    private void resize(int capacity) {
+        E[] data = (E[]) new Object[capacity];
+        System.arraycopy(this.data, 0, data, 0, this.size);
+        this.data = data;
+    }
+
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
@@ -210,11 +231,5 @@ public class ArrayList<E> {
         }
         res.append(']');
         return res.toString();
-    }
-
-    private void resize(int capacity) {
-        E[] data = (E[]) new Object[capacity];
-        System.arraycopy(this.data, 0, data, 0, this.size);
-        this.data = data;
     }
 }

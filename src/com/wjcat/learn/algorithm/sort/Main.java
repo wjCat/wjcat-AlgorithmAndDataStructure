@@ -1,9 +1,6 @@
 package com.wjcat.learn.algorithm.sort;
 
-import com.wjcat.learn.algorithm.sort.MergeSort.Up2DownMergeSort;
-
-import java.util.Arrays;
-import java.util.concurrent.ExecutorService;
+import com.wjcat.learn.algorithm.sort.mergeSort.Up2DownMergeSort;
 
 /**
  * @decription @TODO

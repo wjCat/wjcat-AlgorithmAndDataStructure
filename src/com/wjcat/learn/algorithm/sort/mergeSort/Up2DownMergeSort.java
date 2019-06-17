@@ -1,4 +1,4 @@
-package com.wjcat.learn.algorithm.sort.MergeSort;
+package com.wjcat.learn.algorithm.sort.mergeSort;
 
 /**
  * @decription @TODO

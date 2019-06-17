@@ -1,4 +1,4 @@
-package com.wjcat.learn.algorithm.sort.MergeSort;
+package com.wjcat.learn.algorithm.sort.mergeSort;
 
 import com.wjcat.learn.algorithm.sort.Sort;
 

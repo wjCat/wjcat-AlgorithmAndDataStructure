@@ -1,6 +1,6 @@
 package com.wjcat.learn.algorithm.sort;
 
-import com.wjcat.learn.algorithm.sort.mergeSort.Up2DownMergeSort;
+import com.wjcat.learn.algorithm.sort.quickSort.QuickSort;
 
 /**
  * @decription @TODO
@@ -11,21 +11,24 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         Integer[] array = new Integer[1000000];
-        Integer[] array2 = new Integer[1000000];
-        Integer[] array3 = new Integer[1000000];
-        Integer[] array4 = new Integer[1000000];
+//        Integer[] array2 = new Integer[1000000];
+//        Integer[] array3 = new Integer[1000000];
+//        Integer[] array4 = new Integer[1000000];
+        Integer[] array5 = new Integer[1000000];
         for (int i = 0;i<array.length;i++){
-            array[i] = (int) (Math.random() * 100000);
-//            array[i] = i;
+//            array[i] = (int) (Math.random() * 10000000);
+            array[i] = i;
         }
-        System.arraycopy(array, 0, array2, 0, array.length);
-        System.arraycopy(array, 0, array3, 0, array.length);
-        System.arraycopy(array, 0, array4, 0, array.length);
+//        System.arraycopy(array, 0, array2, 0, array.length);
+//        System.arraycopy(array, 0, array3, 0, array.length);
+//        System.arraycopy(array, 0, array4, 0, array.length);
+        System.arraycopy(array, 0, array5, 0, array.length);
 
 //        execute(array, new SelectionSort());
 //        execute(array2, new InsertionSort());
 //        execute(array3, new BubbleSort());
-        execute(array4, new Up2DownMergeSort());
+//        execute(array4, new Up2DownMergeSort());
+        execute(array5, new QuickSort());
 
     }
 

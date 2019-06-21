@@ -100,4 +100,16 @@ public class InsertionSort<E extends Comparable<E>> extends Sort<E> {
         return (endTime - startTime) + "ms";
     }
 
+    // 对arr[l...r]的区间使用InsertionSort排序
+    public static void sort(Comparable[] arr, int left, int right){
+
+        for( int i = left + 1 ; i <= right ; i ++ ){
+            Comparable e = arr[i];
+            int j = i;
+            for( ; j > left && arr[j-1].compareTo(e) > 0 ; j--)
+                arr[j] = arr[j-1];
+            arr[j] = e;
+        }
+    }
+
 }

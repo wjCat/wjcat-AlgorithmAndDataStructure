@@ -1,5 +1,6 @@
 package com.wjcat.learn.algorithm.sort.quickSort;
 
+import com.wjcat.learn.algorithm.sort.InsertionSort;
 import com.wjcat.learn.algorithm.sort.Sort;
 
 /**
@@ -21,9 +22,30 @@ public class ThreeWayQuickSort<E extends Comparable<E>> extends Sort<E> {
 
     private void sort(E[] array, int left, int right) {
 
-        int i = left + 1, j = right, k = left + 1;
+        // 对于小规模数组, 使用插入排序
+        if (right - left <= 15) {
+            InsertionSort.sort(array, left, right);
+            return;
+        }
 
-//        for (int a = left + 1; a < gt)
+        swap(array, left, (int) (Math.random() * (right - left + 1)) + left);
+
+        int min = left, max = right + 1, equals = left + 1;
+
+        while (equals < max) {
+            if (array[left].compareTo(array[equals]) == 0) {
+                equals++;
+            } else if (less(array[left], array[equals])) {
+                swap(array, equals, --max);
+            } else {
+                swap(array, equals++, ++min);
+            }
+        }
+
+        swap(array, left, min);
+
+        sort(array, left, min-1);
+        sort(array, max, right);
 
     }
 

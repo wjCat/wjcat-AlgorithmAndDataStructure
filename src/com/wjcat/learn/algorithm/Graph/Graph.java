@@ -1,7 +1,7 @@
 package com.wjcat.learn.algorithm.Graph;
 
 /**
- * @decription @TODO
+ * @decription 图接口
  * Created by 厕所里拉屎的猫 on 2019/6/19.
  */
 public interface Graph {

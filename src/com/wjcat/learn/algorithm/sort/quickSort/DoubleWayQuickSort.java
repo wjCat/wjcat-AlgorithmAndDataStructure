@@ -22,30 +22,39 @@ public class DoubleWayQuickSort<E extends Comparable<E>> extends Sort<E> {
     private void sort(E[] array, int left, int right) {
 
         if (right - left <= 15) {
-            insertionSort(array);
+            insertionSort(array, left, right);
             return;
         }
 
-        int i = left + 1, j = right;
+        swap(array, left, (int) (Math.random() * (right - left + 1)) + left);
+
+
+
+        int min = left + 1, max = right;
         while (true) {
-            while (i <= right && less(array[i], array[left])) i++;
-            while (j >= left && less(array[left], array[j])) j--;
-            if (i > j) break;
-            swap(array, i, j);
-            i++;
-            j--;
+            while (min <= right && less(array[min], array[left])) min++;
+            while (max >= left+1 && less(array[left], array[max])) max--;
+            if (min > max) break;
+            swap(array, min, max);
+            min++;
+            max--;
         }
-        swap(array, left, j);
-        sort(array, left, j - 1);
-        sort(array, left, j + 1);
+        swap(array, left, max);
+
+
+
+        sort(array, left, max - 1);
+        sort(array, max + 1, right);
 
     }
 
-    private void insertionSort(E[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i; j > 0 && less(array[j], array[j - 1]); j--) {
-                swap(array, j, j - 1);
-            }
+    private void insertionSort(E[] array, int left, int right) {
+        for (int i = left + 1; i <= right; i++) {
+            E element = array[i];
+            int j = i;
+            for (; j > 0 && less(element, array[j - 1]); j--)
+                array[j] = array[j - 1];
+            array[j] = element;
         }
     }
 

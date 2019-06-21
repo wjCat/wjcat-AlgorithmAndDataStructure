@@ -24,29 +24,43 @@ public class ThreeWayQuickSort<E extends Comparable<E>> extends Sort<E> {
 
         // 对于小规模数组, 使用插入排序
         if (right - left <= 15) {
-            InsertionSort.sort(array, left, right);
+            insertionSort(array, left, right);
             return;
         }
 
+        // 随机在arr[l...r]的范围中, 选择一个数值作为标定点pivot
         swap(array, left, (int) (Math.random() * (right - left + 1)) + left);
 
-        int min = left, max = right + 1, equals = left + 1;
+        // lt min
+        // gt max
+        // i equals
+        int min = left, max = right + 1, equals = left;
 
         while (equals < max) {
-            if (array[left].compareTo(array[equals]) == 0) {
+
+            if (array[equals].compareTo(array[left]) == 0)
                 equals++;
-            } else if (less(array[left], array[equals])) {
-                swap(array, equals, --max);
-            } else {
+            else if (array[equals].compareTo(array[left]) < 0)
                 swap(array, equals++, ++min);
-            }
+            else
+                swap(array, equals, --max);
         }
 
         swap(array, left, min);
 
-        sort(array, left, min-1);
+        sort(array, left, min - 1);
         sort(array, max, right);
 
+    }
+
+    private void insertionSort(E[] array, int left, int right) {
+        for (int i = left + 1; i <= right; i++) {
+            E element = array[i];
+            int j = i;
+            for (; j > 0 && less(element, array[j - 1]); j--)
+                array[j] = array[j - 1];
+            array[j] = element;
+        }
     }
 
 }

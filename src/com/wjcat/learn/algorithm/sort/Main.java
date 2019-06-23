@@ -1,11 +1,5 @@
 package com.wjcat.learn.algorithm.sort;
 
-import com.wjcat.learn.algorithm.sort.mergeSort.Down2UpMergeSort;
-import com.wjcat.learn.algorithm.sort.mergeSort.Up2DownMergeSort;
-import com.wjcat.learn.algorithm.sort.quickSort.DoubleWayQuickSort;
-import com.wjcat.learn.algorithm.sort.quickSort.QuickSort;
-import com.wjcat.learn.algorithm.sort.quickSort.ThreeWayQuickSort;
-
 import java.lang.reflect.Method;
 import java.security.InvalidAlgorithmParameterException;
 
@@ -18,29 +12,18 @@ public class Main {
     private static Comparable[] array;
 
     static {
-        array = new Comparable[10000];
+        array = new Comparable[1000000];
         for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 10000);
+            // 数组元素随机，且无序
+//            array[i] = (int) (Math.random() * 10000);
+            // 数组中大量重复元素
+            array[i] = (int) (Math.random() * 10);
+            // 数组近乎有序或已经有序
 //            array[i] = i;
         }
     }
 
     public static void main(String[] args) throws Exception {
-        Integer[] array2 = new Integer[10000];
-        Integer[] array3 = new Integer[10000];
-        Integer[] array4 = new Integer[10000];
-        Integer[] array5 = new Integer[10000];
-        Integer[] array6 = new Integer[10000];
-        Integer[] array7 = new Integer[10000];
-        Integer[] array8 = new Integer[10000];
-        System.arraycopy(array, 0, array2, 0, array.length);
-        System.arraycopy(array, 0, array3, 0, array.length);
-        System.arraycopy(array, 0, array4, 0, array.length);
-        System.arraycopy(array, 0, array5, 0, array.length);
-        System.arraycopy(array, 0, array6, 0, array.length);
-        System.arraycopy(array, 0, array7, 0, array.length);
-        System.arraycopy(array, 0, array8, 0, array.length);
-
         execute(getArray(), "com.wjcat.learn.algorithm.sort.BubbleSort");
         execute(getArray(), "com.wjcat.learn.algorithm.sort.InsertionSort");
         execute(getArray(), "com.wjcat.learn.algorithm.sort.SelectionSort");
@@ -49,35 +32,41 @@ public class Main {
         execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.DoubleWayQuickSort");
         execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.QuickSort");
         execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.ThreeWayQuickSort");
-
     }
 
     private static Comparable[] getArray() {
+
         Comparable[] result = new Comparable[array.length];
         System.arraycopy(array, 0, result, 0, array.length);
         return result;
+
     }
 
-    private static void execute(Comparable[] array, String className) throws Exception {
+    private static void execute(Comparable[] arr, String className) throws Exception {
+        new Thread(() -> {
+            // 通过Java的反射机制，通过排序的类名，运行排序函数
+            try {
+                // 通过sortClassName获得排序函数的Class对象
+                Class sortClass = Class.forName(className);
+                // 通过排序函数的Class对象获得排序方法
+                Method sortMethod = sortClass.getMethod("sort", new Class[]{Comparable[].class});
+                // 排序参数只有一个，是可比较数组arr
+                Object[] params = new Object[]{arr};
 
-        Class sortClass = Class.forName(className);
+                long startTime = System.currentTimeMillis();
+                // 调用排序函数
+                sortMethod.invoke(null, params);
+                long endTime = System.currentTimeMillis();
 
-        Method sortMethod = sortClass.getMethod("sort", new Class[]{Comparable.class});
+                assert isSorted(arr);
+                if (!isSorted(arr))
+                    throw new InvalidAlgorithmParameterException("sort failed!");
 
-        Object[] params = new Object[]{array};
-
-        long startTime = System.currentTimeMillis();
-        // 调用排序函数
-        sortMethod.invoke(null, params);
-        long endTime = System.currentTimeMillis();
-
-        if (!isSorted(array))
-            throw new InvalidAlgorithmParameterException("sort failed!");
-
-        System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + "ms");
-
-        sortMethod.invoke(params);
-
+                System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + "ms");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     // 判断arr数组是否有序

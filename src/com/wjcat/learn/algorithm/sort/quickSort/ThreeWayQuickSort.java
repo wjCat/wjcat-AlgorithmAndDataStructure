@@ -12,11 +12,11 @@ public class ThreeWayQuickSort {
     private ThreeWayQuickSort() {
     }
 
-    public void sort(Comparable[] array) {
+    public static void sort(Comparable[] array) {
         sort(array, 0, array.length - 1);
     }
 
-    private void sort(Comparable[] array, int left, int right) {
+    private static void sort(Comparable[] array, int left, int right) {
 
         // 对于小规模数组, 使用插入排序
         if (right - left <= 15) {

@@ -11,11 +11,11 @@ public class DoubleWayQuickSort {
 
     private DoubleWayQuickSort() {}
 
-    public void sort(Comparable[] array) {
+    public static void sort(Comparable[] array) {
         sort(array, 0, array.length - 1);
     }
 
-    private void sort(Comparable[] array, int left, int right) {
+    private static void sort(Comparable[] array, int left, int right) {
 
         if (right - left <= 15) {
             InsertionSort.sort(array, left, right);

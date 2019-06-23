@@ -12,7 +12,7 @@ public class BubbleSort {
     private BubbleSort() {
     }
 
-    public void sort(Comparable[] array) {
+    public static void sort(Comparable[] array) {
         boolean isSort = false;
         do {
             isSort = true;

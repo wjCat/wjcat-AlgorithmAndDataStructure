@@ -7,26 +7,22 @@ package com.wjcat.learn.algorithm.sort;
  * 直到当此轮回不出现交换时退出。
  * Created by 厕所里拉屎的猫 on 2019/5/23.
  */
-public class BubbleSort<E extends Comparable<E>> extends Sort<E> {
+public class BubbleSort {
 
-    @Override
-    public String sort(E[] array) {
+    private BubbleSort() {
+    }
 
-        Long startTime = System.currentTimeMillis();
-
+    public void sort(Comparable[] array) {
         boolean isSort = false;
         do {
             isSort = true;
             for (int i = 0; i < array.length - 1; i++) {
-                if (less(array[i + 1], array[i])) {
-                    swap(array, i, i + 1);
+                if (SortHelper.less(array[i + 1], array[i])) {
+                    SortHelper.swap(array, i, i + 1);
                     isSort = false;
                 }
             }
-        } while(!isSort);
-
-        Long endTime = System.currentTimeMillis();
-        return (endTime - startTime) + "ms";
+        } while (!isSort);
     }
 
 }

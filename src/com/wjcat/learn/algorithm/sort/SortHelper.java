@@ -1,19 +1,10 @@
 package com.wjcat.learn.algorithm.sort;
 
-import java.util.Arrays;
-
 /**
- * @Description 排序抽象类，抽取公共方法
- * Created by 厕所里拉屎的猫 on 2019/5/23.
+ * @decription @TODO
+ * Created by 厕所里拉屎的猫 on 2019/6/23.
  */
-public abstract class Sort<E extends Comparable<E>> {
-
-    /**
-     * 排序抽象方法
-     * @param array 需要排序的数组
-     * @return 使用时长
-     */
-    public abstract String sort(E[] array);
+public class SortHelper {
 
     /**
      * 判断e1数组对象是否小于后者e2数组对象
@@ -21,7 +12,7 @@ public abstract class Sort<E extends Comparable<E>> {
      * @param e2 数组对象2
      * @return 返回前者是否小于后者
      */
-    protected boolean less(E e1, E e2) {
+    public static boolean less(Comparable e1, Comparable e2) {
         return e1.compareTo(e2) < 0;
     }
 
@@ -31,9 +22,10 @@ public abstract class Sort<E extends Comparable<E>> {
      * @param i 数组索引
      * @param j 数组索引
      */
-    protected void swap(E[] array, int i, int j) {
-        E t = array[i];
+    public static void swap(Comparable[] array, int i, int j) {
+        Comparable t = array[i];
         array[i] = array[j];
         array[j] = t;
     }
+
 }

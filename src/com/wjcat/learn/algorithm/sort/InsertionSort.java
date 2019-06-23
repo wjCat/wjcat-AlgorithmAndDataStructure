@@ -7,17 +7,19 @@ package com.wjcat.learn.algorithm.sort;
  * <p>
  * Created by 厕所里拉屎的猫 on 2019/5/15.
  */
-public class InsertionSort<E extends Comparable<E>> extends Sort<E> {
+public class InsertionSort {
+
+    private InsertionSort() {}
 
     /**
      * 将传入的数组进行顺序排序
      *
      * @param array 需要排序的数组
      */
-    public void sortAsc(E[] array) {
+    public static void sortAsc(Comparable[] array) {
         // for循环实现方式
         for (int i = 0; i < array.length; i++) {
-            E element = array[i];
+            Comparable element = array[i];
             for (int j = i - 1; j >= 0; j--) {
                 if (element.compareTo(array[j]) >= 0)
                     break;
@@ -45,7 +47,7 @@ public class InsertionSort<E extends Comparable<E>> extends Sort<E> {
      *
      * @param array 需要排序的数组
      */
-    public void sortDesc(E[] array) {
+    public void sortDesc(Comparable[] array) {
         // for循环实现方式
 //        for (int i = 0; i < array.length; i++) {
 //            E element = array[i];
@@ -61,7 +63,7 @@ public class InsertionSort<E extends Comparable<E>> extends Sort<E> {
 
         // while循环实现方式
         for (int i = 0; i < array.length; i++) {
-            E element = array[i];
+            Comparable element = array[i];
             int j = i - 1;
             while (j >= 0 && array[j].compareTo(element) < 0) {
                 array[j + 1] = array[j];
@@ -79,7 +81,7 @@ public class InsertionSort<E extends Comparable<E>> extends Sort<E> {
      * @param v
      * @return
      */
-    public int test3(E[] array, E v) {
+    public int test3(Comparable[] array, Comparable v) {
         int i = -1;
         for (int j = 0; j < array.length; j++) {
             if (array[j].equals(v))
@@ -88,16 +90,12 @@ public class InsertionSort<E extends Comparable<E>> extends Sort<E> {
         return i;
     }
 
-    @Override
-    public String sort(E[] array) {
-        long startTime = System.currentTimeMillis();
+    public static void sort(Comparable[] array) {
         for (int i = 0; i < array.length; i++) {
-            for (int j = i; j > 0 && less(array[j], array[j - 1]); j--) {
-                swap(array, j, j - 1);
+            for (int j = i; j > 0 && SortHelper.less(array[j], array[j - 1]); j--) {
+                SortHelper.swap(array, j, j - 1);
             }
         }
-        long endTime = System.currentTimeMillis();
-        return (endTime - startTime) + "ms";
     }
 
     // 对arr[l...r]的区间使用InsertionSort排序

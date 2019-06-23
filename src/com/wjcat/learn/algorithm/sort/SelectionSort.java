@@ -7,22 +7,20 @@ package com.wjcat.learn.algorithm.sort;
  *
  * Created by 厕所里拉屎的猫 on 2019/6/17.
  */
-public class SelectionSort<E extends Comparable<E>> extends Sort<E> {
+public class SelectionSort {
 
-    @Override
-    public String sort(E[] array) {
-        long startTime = System.currentTimeMillis();
+    private SelectionSort() {}
+
+    public void sort(Comparable[] array) {
         for (int i = 0; i < array.length; i++) {
             int min = i;
             for (int j = i + 1; j < array.length; j++) {
-                if (less(array[j], array[min])) {
+                if (SortHelper.less(array[j], array[min])) {
                     min = j;
                 }
             }
-            swap(array, i, min);
+            SortHelper.swap(array, i, min);
         }
-        long endTime = System.currentTimeMillis();
-        return (endTime - startTime) + "ms";
     }
 
 }

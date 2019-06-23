@@ -1,4 +1,4 @@
-package com.wjcat.learn.algorithm.Graph;
+package com.wjcat.learn.algorithm.Graph.basic;
 
 /**
  * @decription 图接口
@@ -36,6 +36,16 @@ public interface Graph {
      */
     boolean hasEdge(int node1, int node2);
 
+    /**
+     * 输出图
+     */
     void show();
+
+    /**
+     * 图的迭代器，返回点v的所有边
+     * @param v 节点
+     * @return 迭代器
+     */
+    Iterable<Integer> adj(int v);
 
 }

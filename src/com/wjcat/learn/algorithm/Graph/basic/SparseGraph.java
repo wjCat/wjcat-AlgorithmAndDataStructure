@@ -1,4 +1,4 @@
-package com.wjcat.learn.algorithm.Graph;
+package com.wjcat.learn.algorithm.Graph.basic;
 
 import java.util.Vector;
 
@@ -76,5 +76,20 @@ public class SparseGraph implements Graph {
     @Override
     public void show() {
 
+        for (int i = 0; i < graph.length; i++) {
+            System.out.print("vertex " + i + ":\t");
+            for (int j = 0; j < graph[i].size(); j++) {
+                System.out.print(graph[i].elementAt(j) + "\t");
+            }
+            System.out.println();
+        }
+
+    }
+
+    @Override
+    public Iterable<Integer> adj(int v) {
+        if (v >= 0 && v < this.nodeNumber)
+            throw new IllegalArgumentException("参数错误");
+        return graph[v];
     }
 }

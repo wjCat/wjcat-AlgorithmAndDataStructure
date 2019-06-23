@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 import java.security.InvalidAlgorithmParameterException;
 
 /**
- * @decription @TODO
+ * @decription 测试方法，提供各种数组来对比性能
  * Created by 厕所里拉屎的猫 on 2019/6/17.
  */
 public class Main {
@@ -12,11 +12,12 @@ public class Main {
     private static Comparable[] array;
 
     static {
-        array = new Comparable[1000000];
+        array = new Comparable[10000];
         for (int i = 0; i < array.length; i++) {
             // 数组元素随机，且无序
 //            array[i] = (int) (Math.random() * 10000);
             // 数组中大量重复元素
+            // 如果数组元素过大，将导致快排栈内存溢出
             array[i] = (int) (Math.random() * 10);
             // 数组近乎有序或已经有序
 //            array[i] = i;
@@ -71,7 +72,6 @@ public class Main {
 
     // 判断arr数组是否有序
     public static boolean isSorted(Comparable[] arr) {
-
         for (int i = 0; i < arr.length - 1; i++)
             if (arr[i].compareTo(arr[i + 1]) > 0)
                 return false;

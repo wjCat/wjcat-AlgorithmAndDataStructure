@@ -18,6 +18,9 @@ import java.util.Stack;
  *      输入: 10
  *      输出: false
  *      解释: 从右向左读, 为 01 。因此它不是一个回文数。
+ * 来源：力扣（LeetCode）
+ * 链接：https://leetcode-cn.com/problems/roman-to-integer
+ * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  * Created by yupeijiang on 2019/7/1.
  */
 public class NinthSolution {

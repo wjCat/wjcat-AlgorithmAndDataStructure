@@ -13,7 +13,7 @@ import com.wjcat.learn.datastructure.stack.ArrayStack;
  * <p>
  * Created by 厕所里拉屎的猫 on 2019/5/18.
  */
-public class twenty {
+public class TwentySolution {
 
     public boolean isValid(String s) {
         //================================== 👇使用jdk的stack👇 ==================================//
@@ -61,8 +61,8 @@ public class twenty {
 
     public static void main(String[] args) {
 
-        System.out.println((new twenty()).isValid("()[]{}"));
-        System.out.println((new twenty()).isValid("([)]"));
+        System.out.println((new TwentySolution()).isValid("()[]{}"));
+        System.out.println((new TwentySolution()).isValid("([)]"));
     }
 
 }

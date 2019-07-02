@@ -12,7 +12,7 @@ package com.wjcat.learn.leetcode;
  * 输出: "bb"
  * Created by yupeijiang on 2019/6/27.
  */
-public class fifthSolution {
+public class FifthSolution {
 
 //    public static String longestPalindrome(String s) {
 //

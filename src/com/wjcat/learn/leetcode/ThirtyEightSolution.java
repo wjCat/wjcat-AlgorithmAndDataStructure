@@ -35,25 +35,50 @@ package com.wjcat.learn.leetcode;
 public class ThirtyEightSolution {
 
     public static String countAndSay(int n) {
-        if (n < 1) return "";
-        return countAndSay("1", n - 1);
+        return countAndSay("1", n);
     }
 
     private static String countAndSay(String s, int count) {
-        if (count == 0) return s;
-        StringBuffer result = new StringBuffer();
+        if (count == 1) return s;
+        StringBuilder result = new StringBuilder();
         int j = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(j) != s.charAt(i)){
-                j = i;
+        while (j < s.length()) {
+            int i = 1;
+            while (j < s.length() - 1 && s.charAt(j) == s.charAt(j + 1)) {
+                i++;
+                j++;
             }
-            result.append((i-j) + s.charAt(j));
+            result.append(Integer.toString(i) + s.charAt(j));
+            j++;
         }
-        return countAndSay(result.toString(), --count);
+        return countAndSay(result.toString(), count - 1);
+    }
+
+    private static String countHelper(String str, int n) {
+        if (n == 1) return str;
+        else {
+            //求下一个数
+            StringBuilder stringBuilder = new StringBuilder();
+            int i = 0;
+            //一直读数
+            while (i < str.length()) {
+                int count = 1;
+                //如果一直是同一个数
+                while (i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) {
+                    count++;
+                    i++;
+                }
+                //下一个数更新
+                stringBuilder.append(Integer.toString(count) + str.charAt(i));
+                i++;
+            }
+            str = stringBuilder.toString();
+            return countHelper(str, n - 1);
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(countAndSay(4));
+        System.out.println(countAndSay(1));
     }
 
 }

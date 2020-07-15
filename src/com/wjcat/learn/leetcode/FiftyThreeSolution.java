@@ -23,10 +23,11 @@ public class FiftyThreeSolution {
         int result = nums[0];
         int sum = 0;
         for (int number : nums) {
-            if (sum > 0)
+            if (sum > 0) {
                 sum += number;
-            else
+            } else {
                 sum = number;
+            }
             result = Math.max(result, sum);
         }
         return result;

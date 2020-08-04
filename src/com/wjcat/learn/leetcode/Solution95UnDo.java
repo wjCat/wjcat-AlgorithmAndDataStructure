@@ -7,7 +7,7 @@ import java.util.List;
  * @author yupeijiang
  * @date 2020/7/21 0021
  */
-public class Solution95 {
+public class Solution95UnDo {
 
 //    public class TreeNode {
 //        int val;

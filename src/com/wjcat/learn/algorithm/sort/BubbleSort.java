@@ -1,7 +1,7 @@
 package com.wjcat.learn.algorithm.sort;
 
 /**
- * @Description 冒泡排序
+ * 冒泡排序
  * <p>
  * 每次轮回，都从左到右不断交换相邻逆序的元素，
  * 直到当此轮回不出现交换时退出。

@@ -17,8 +17,4 @@ public class Solution6 {
         return ret.toString();
     }
 
-    public static void main(String[] args) {
-        int[] a = new int[]{1, };
-    }
-
 }

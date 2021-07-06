@@ -1,5 +1,8 @@
 package com.wjcat.learn.algorithm.sort;
 
+import java.util.Arrays;
+import java.util.Random;
+
 /**
  * 冒泡排序
  * <p>
@@ -23,6 +26,37 @@ public class BubbleSort {
                 }
             }
         } while (!isSort);
+    }
+
+    public static void sort2(Comparable[] array) {
+        for (int i = array.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (SortHelper.less(array[j + 1], array[j])) {
+                    SortHelper.swap(array, j, j + 1);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        boolean result = true;
+        for (int i = 0; i < 1000 && result; i++) {
+            Integer[] param = new Integer[100];
+            for (int j = 0; j < 100; j++) {
+                param[j] = (int) (Math.random() * 100);
+            }
+            Integer[] param2 = Arrays.copyOf(param, 100);
+            BubbleSort.sort(param);
+            BubbleSort.sort2(param2);
+            System.out.println(Arrays.toString(param));
+            System.out.println(Arrays.toString(param2));
+            for (int a = 0; a < 100; a++) {
+                if (!param[a].equals(param2[a])) {
+                    result = false;
+                }
+            }
+        }
+        System.out.println(result);
     }
 
 }

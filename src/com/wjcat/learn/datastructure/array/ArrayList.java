@@ -1,8 +1,11 @@
 package com.wjcat.learn.datastructure.array;
 
 /**
- * @Description 数组
+ *
+ * 数组
  * Created by 厕所里拉屎的猫 on 2019/5/17.
+ * review in 2021/07/06
+ *
  */
 public class ArrayList<E> {
 

@@ -25,14 +25,15 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.BubbleSort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.InsertionSort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.SelectionSort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.mergeSort.Down2UpMergeSort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.mergeSort.Up2DownMergeSort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.DoubleWayQuickSort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.QuickSort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.ThreeWayQuickSort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.BubbleSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.BubbleSort", "sort2");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.InsertionSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.SelectionSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.mergeSort.Down2UpMergeSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.mergeSort.Up2DownMergeSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.DoubleWayQuickSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.QuickSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.ThreeWayQuickSort", "sort");
     }
 
     private static Comparable[] getArray() {
@@ -43,14 +44,14 @@ public class Main {
 
     }
 
-    private static void execute(Comparable[] arr, String className) throws Exception {
+    private static void execute(Comparable[] arr, String className, String functionName) throws Exception {
         new Thread(() -> {
             // 通过Java的反射机制，通过排序的类名，运行排序函数
             try {
                 // 通过sortClassName获得排序函数的Class对象
                 Class sortClass = Class.forName(className);
                 // 通过排序函数的Class对象获得排序方法
-                Method sortMethod = sortClass.getMethod("sort", new Class[]{Comparable[].class});
+                Method sortMethod = sortClass.getMethod(functionName, new Class[]{Comparable[].class});
                 // 排序参数只有一个，是可比较数组arr
                 Object[] params = new Object[]{arr};
 
@@ -63,7 +64,7 @@ public class Main {
                 if (!isSorted(arr))
                     throw new InvalidAlgorithmParameterException("sort failed!");
 
-                System.out.println(sortClass.getSimpleName() + " : " + (endTime - startTime) + "ms");
+                System.out.println(sortClass.getSimpleName() + "." + sortMethod.getName() + " : " + (endTime - startTime) + "ms");
             } catch (Exception e) {
                 e.printStackTrace();
             }

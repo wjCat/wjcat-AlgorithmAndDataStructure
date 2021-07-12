@@ -3,6 +3,7 @@ package com.wjcat.learn.datastructure.linked;
 /**
  * @Description 链表
  * Created by 厕所里拉屎的猫 on 2019/5/19.
+ * review in 2021/07/12
  */
 public class LinkedList<E> {
 

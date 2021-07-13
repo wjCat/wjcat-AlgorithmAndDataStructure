@@ -218,6 +218,15 @@ public class AVLTreeTemplate<K extends Comparable<K>, V> {
     }
 
     /**
+     * 删除以node为根的二分搜索树中的最小节点
+     * @param node 根节点
+     * @return 删除的节点
+     */
+    private Node removeMin(Node node) {
+        return null;
+    }
+
+    /**
      * 删除元素element
      *
      * @param key 元素对象

@@ -1,5 +1,7 @@
 package com.wjcat.learn.datastructure.tree.AVLTree;
 
+import java.util.ArrayList;
+
 public class AVLTreeTemplate<K extends Comparable<K>, V> {
 
     private class Node {
@@ -41,6 +43,44 @@ public class AVLTreeTemplate<K extends Comparable<K>, V> {
         return false;
     }
 
+    /**
+     * 判断二叉树是否是一颗二分搜索树
+     *
+     * @return 是否为二分搜索树
+     */
+    public boolean isBST() {
+        return false;
+    }
+
+    /**
+     * 将二叉树按照中序遍历，存储到keys中(中序，将以二叉树的key的排序按正序输出)
+     *
+     * @param node 树节点
+     * @param keys key集合
+     */
+    private void inOrder(Node node, ArrayList<K> keys) {
+        return;
+    }
+
+    /**
+     * 判断是否为平衡二叉树
+     *
+     * @return 是否为平衡二叉树
+     */
+    public boolean isBalanced() {
+        return false;
+    }
+
+    /**
+     * 递归判断是否为平衡二叉树
+     *
+     * @param node 树节点
+     * @return 是否平衡
+     */
+    private boolean isBalanced(Node node) {
+        return false;
+    }
+
     // ================================================== 👇平衡二叉树保持平衡的辅助函数👇 ==================================================//
 
     /**
@@ -50,7 +90,7 @@ public class AVLTreeTemplate<K extends Comparable<K>, V> {
      * @return 高度
      */
     private int getHeight(Node node) {
-            return 0;
+        return 0;
     }
 
     /**
@@ -60,7 +100,7 @@ public class AVLTreeTemplate<K extends Comparable<K>, V> {
      * @return 平衡因子
      */
     private int getBalanceFactor(Node node) {
-            return 0;
+        return 0;
     }
 
     /**

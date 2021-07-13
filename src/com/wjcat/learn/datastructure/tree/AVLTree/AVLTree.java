@@ -1,8 +1,9 @@
 package com.wjcat.learn.datastructure.tree.AVLTree;
 
 /**
- * @Description 平衡二叉树AVL
+ * 平衡二叉树AVL
  * Created by 厕所里拉屎的猫 on 2019/5/22.
+ * review in 2021/07/13
  */
 public class AVLTree<K extends Comparable<K>, V> {
 

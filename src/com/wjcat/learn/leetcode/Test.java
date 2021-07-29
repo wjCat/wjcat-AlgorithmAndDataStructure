@@ -1,0 +1,302 @@
+package com.wjcat.learn.leetcode;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+public class Test {
+
+    public static void main(String[] args) {
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+        doing(new Solution1622(), list1);
+        doing(new Solution1622Temp(), list2);
+        for (int i = 0; i < list1.size(); i++) {
+            if (!Objects.equals(list1.get(i), list2.get(i))) {
+                System.out.printf("index[%d]--mine[%d]--answer[%d]%n", i, list1.get(i), list2.get(i));
+            }
+        }
+    }
+
+    private static void doing1(Solution1622 fancy, List<Integer> list) {
+        fancy.append(2);   // 奇妙序列：[2]
+        fancy.addAll(3);   // 奇妙序列：[2+3] -> [5]
+        fancy.append(7);   // 奇妙序列：[5, 7]
+        fancy.multAll(2);  // 奇妙序列：[5*2, 7*2] -> [10, 14]
+        list.add(fancy.getIndex(0)); // 返回 10
+        fancy.addAll(3);   // 奇妙序列：[10+3, 14+3] -> [13, 17]
+        fancy.append(10);  // 奇妙序列：[13, 17, 10]
+        fancy.multAll(2);  // 奇妙序列：[13*2, 17*2, 10*2] -> [26, 34, 20]
+        list.add(fancy.getIndex(0)); // 返回 26
+        list.add(fancy.getIndex(1)); // 返回 34
+        list.add(fancy.getIndex(2)); // 返回 20
+    }
+
+    private static void doing(Solution1622 fancy, List<Integer> list) {
+        fancy.append(4);
+        fancy.addAll(15);
+        fancy.addAll(16);
+        fancy.multAll(8);
+        fancy.addAll(10);
+        fancy.addAll(8);
+        list.add(fancy.getIndex(0));
+        fancy.append(7);
+        fancy.addAll(14);
+        list.add(fancy.getIndex(1));
+        fancy.append(7);
+        fancy.addAll(4);
+        fancy.append(2);
+        list.add(fancy.getIndex(1));
+        list.add(fancy.getIndex(1));
+        fancy.append(15);
+        fancy.multAll(4);
+        fancy.append(15);
+        fancy.multAll(9);
+        list.add(fancy.getIndex(0));
+        fancy.addAll(6);
+        fancy.append(4);
+        fancy.append(14);
+        fancy.multAll(13);
+        list.add(fancy.getIndex(4));
+        fancy.multAll(4);
+        fancy.addAll(11);
+        fancy.addAll(13);
+        fancy.append(14);
+        fancy.append(15);
+        fancy.append(13);
+        fancy.multAll(11);
+        fancy.append(16);
+        fancy.multAll(8);
+        fancy.addAll(9);
+        fancy.append(6);
+        fancy.multAll(3);
+        fancy.append(13);
+        fancy.addAll(8);
+        list.add(fancy.getIndex(9));
+        fancy.multAll(11);
+        fancy.addAll(12);
+        fancy.multAll(4);
+        fancy.multAll(4);
+        fancy.addAll(6);
+        list.add(fancy.getIndex(6));
+        fancy.addAll(14);
+        fancy.append(7);
+        list.add(fancy.getIndex(5));
+        list.add(fancy.getIndex(11));
+        fancy.multAll(14);
+        list.add(fancy.getIndex(4));
+        fancy.append(3);
+        fancy.append(10);
+        fancy.addAll(9);
+        fancy.addAll(4);
+        fancy.append(14);
+        fancy.append(7);
+        fancy.addAll(14);
+        fancy.addAll(7);
+        fancy.append(9);
+        list.add(fancy.getIndex(13));
+        fancy.append(7);
+        list.add(fancy.getIndex(20));
+        fancy.append(10);
+        list.add(fancy.getIndex(18));
+        fancy.append(8);
+        fancy.append(16);
+        fancy.addAll(5);
+        fancy.addAll(7);
+        list.add(fancy.getIndex(8));
+        list.add(fancy.getIndex(9));
+        fancy.addAll(11);
+        list.add(fancy.getIndex(7));
+        fancy.append(11);
+        fancy.multAll(16);
+        fancy.addAll(6);
+        fancy.multAll(6);
+        fancy.multAll(8);
+        list.add(fancy.getIndex(17));
+        fancy.addAll(10);
+        fancy.append(8);
+        fancy.multAll(8);
+        list.add(fancy.getIndex(2));
+        fancy.addAll(13);
+        fancy.append(2);
+        fancy.multAll(12);
+        list.add(fancy.getIndex(22));
+        fancy.append(11);
+        fancy.append(6);
+        fancy.multAll(14);
+        fancy.append(9);
+        fancy.multAll(11);
+        fancy.addAll(6);
+        fancy.append(15);
+        list.add(fancy.getIndex(10));
+        fancy.multAll(16);
+        list.add(fancy.getIndex(23));
+        list.add(fancy.getIndex(3));
+        fancy.addAll(8);
+        list.add(fancy.getIndex(24));
+        fancy.multAll(5);
+        list.add(fancy.getIndex(7));
+        fancy.multAll(7);
+        list.add(fancy.getIndex(32));
+        fancy.append(14);
+        list.add(fancy.getIndex(17));
+        list.add(fancy.getIndex(30));
+        fancy.append(13);
+        fancy.multAll(10);
+        fancy.append(5);
+        fancy.append(9);
+        list.add(fancy.getIndex(8));
+        fancy.append(9);
+        fancy.append(4);
+        fancy.addAll(16);
+        fancy.append(10);
+        list.add(fancy.getIndex(26));
+        fancy.addAll(13);
+        fancy.append(2);
+        fancy.addAll(16);
+        fancy.append(12);
+        fancy.addAll(4);
+        fancy.multAll(15);
+        list.add(fancy.getIndex(24));
+        list.add(fancy.getIndex(7));
+        fancy.append(14);
+        fancy.append(9);
+        fancy.append(7);
+        list.add(fancy.getIndex(37));
+        fancy.multAll(6);
+        list.add(fancy.getIndex(35));
+        fancy.append(11);
+        list.add(fancy.getIndex(13));
+        list.add(fancy.getIndex(17));
+        fancy.append(7);
+        fancy.multAll(12);
+        list.add(fancy.getIndex(36));
+        fancy.multAll(3);
+        fancy.append(12);
+        fancy.append(9);
+        fancy.multAll(2);
+        list.add(fancy.getIndex(35));
+        fancy.multAll(2);
+        fancy.append(2);
+        fancy.addAll(12);
+        fancy.addAll(16);
+        list.add(fancy.getIndex(1));
+        fancy.addAll(12);
+        fancy.addAll(7);
+        list.add(fancy.getIndex(15));
+        list.add(fancy.getIndex(33));
+        fancy.multAll(9);
+        list.add(fancy.getIndex(34));
+        list.add(fancy.getIndex(45));
+        fancy.addAll(13);
+        list.add(fancy.getIndex(46));
+        fancy.multAll(2);
+        fancy.append(2);
+        fancy.multAll(4);
+        fancy.append(4);
+        fancy.multAll(7);
+        fancy.append(3);
+        fancy.addAll(13);
+        fancy.multAll(10);
+        list.add(fancy.getIndex(37));
+        list.add(fancy.getIndex(12));
+        fancy.multAll(12);
+        fancy.multAll(5);
+        fancy.multAll(4);
+        fancy.append(14);
+        fancy.multAll(13);
+        fancy.multAll(10);
+        fancy.append(16);
+        fancy.append(15);
+        fancy.multAll(6);
+        fancy.append(6);
+        fancy.multAll(13);
+        fancy.multAll(13);
+        fancy.multAll(5);
+        fancy.multAll(7);
+        fancy.addAll(13);
+        fancy.append(10);
+        list.add(fancy.getIndex(0));
+        fancy.multAll(15);
+        fancy.addAll(8);
+        fancy.multAll(2);
+        fancy.append(8);
+        fancy.addAll(13);
+        fancy.addAll(4);
+        fancy.addAll(14);
+        fancy.addAll(5);
+        fancy.multAll(7);
+        fancy.multAll(12);
+        list.add(fancy.getIndex(14));
+        list.add(fancy.getIndex(48));
+        fancy.addAll(13);
+        fancy.append(4);
+        fancy.multAll(11);
+        fancy.append(8);
+        fancy.append(4);
+        fancy.append(8);
+        fancy.append(5);
+        list.add(fancy.getIndex(33));
+        fancy.addAll(14);
+        fancy.append(7);
+        fancy.addAll(9);
+        list.add(fancy.getIndex(5));
+        fancy.append(2);
+        fancy.multAll(3);
+        fancy.append(6);
+        list.add(fancy.getIndex(0));
+        fancy.append(4);
+        fancy.append(10);
+        fancy.append(3);
+        list.add(fancy.getIndex(71));
+        fancy.addAll(8);
+        list.add(fancy.getIndex(63));
+        list.add(fancy.getIndex(18));
+        list.add(fancy.getIndex(13));
+        list.add(fancy.getIndex(59));
+        fancy.append(3);
+        list.add(fancy.getIndex(7));
+        list.add(fancy.getIndex(17));
+        list.add(fancy.getIndex(7));
+        fancy.multAll(14);
+        list.add(fancy.getIndex(29));
+        fancy.addAll(2);
+        list.add(fancy.getIndex(41));
+        fancy.append(10);
+        fancy.addAll(7);
+        fancy.addAll(10);
+        list.add(fancy.getIndex(30));
+        fancy.append(16);
+        fancy.append(9);
+        fancy.append(13);
+        fancy.append(4);
+        list.add(fancy.getIndex(8));
+        fancy.addAll(12);
+        list.add(fancy.getIndex(36));
+        list.add(fancy.getIndex(7));
+        list.add(fancy.getIndex(21));
+        fancy.append(11);
+        fancy.multAll(2);
+        fancy.addAll(16);
+        fancy.addAll(7);
+        fancy.addAll(14);
+        fancy.multAll(7);
+        list.add(fancy.getIndex(48));
+        list.add(fancy.getIndex(45));
+        fancy.append(12);
+        list.add(fancy.getIndex(22));
+        fancy.append(10);
+        fancy.multAll(11);
+        fancy.addAll(5);
+        fancy.append(2);
+        fancy.addAll(6);
+        fancy.multAll(2);
+        fancy.multAll(12);
+        fancy.addAll(7);
+        list.add(fancy.getIndex(11));
+        list.add(fancy.getIndex(59));
+        list.add(fancy.getIndex(49));
+        list.add(fancy.getIndex(63));
+    }
+
+}

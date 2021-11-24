@@ -1,4 +1,6 @@
-package com.wjcat.learn.algorithm.sort;
+package com.wjcat.learn.algorithm.sort.answer;
+
+import com.wjcat.learn.algorithm.sort.answer.SortHelper;
 
 /**
  * @Description 插入排序

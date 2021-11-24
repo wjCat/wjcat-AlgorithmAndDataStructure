@@ -1,7 +1,7 @@
-package com.wjcat.learn.algorithm.sort.quickSort;
+package com.wjcat.learn.algorithm.sort.answer.quickSort;
 
-import com.wjcat.learn.algorithm.sort.InsertionSort;
-import com.wjcat.learn.algorithm.sort.SortHelper;
+import com.wjcat.learn.algorithm.sort.answer.InsertionSort;
+import com.wjcat.learn.algorithm.sort.answer.SortHelper;
 
 /**
  * @decription 三路快排

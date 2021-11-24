@@ -1,11 +1,11 @@
-package com.wjcat.learn.algorithm.sort;
+package com.wjcat.learn.algorithm.sort.template;
 
 import java.lang.reflect.Method;
 import java.security.InvalidAlgorithmParameterException;
 
 /**
- * @decription 测试方法，提供各种数组来对比性能
- * Created by 厕所里拉屎的猫 on 2019/6/17.
+ * 测试方法，提供各种数组来对比性能
+ * @author tec
  */
 public class Main {
 
@@ -24,16 +24,16 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.BubbleSort", "sort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.BubbleSort", "sort2");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.InsertionSort", "sort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.SelectionSort", "sort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.mergeSort.Down2UpMergeSort", "sort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.mergeSort.Up2DownMergeSort", "sort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.DoubleWayQuickSort", "sort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.QuickSort", "sort");
-        execute(getArray(), "com.wjcat.learn.algorithm.sort.quickSort.ThreeWayQuickSort", "sort");
+    public static void main(String[] args) {
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.BubbleSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.BubbleSort", "sort2");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.InsertionSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.SelectionSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.mergeSort.Down2UpMergeSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.mergeSort.Up2DownMergeSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quickSort.DoubleWayQuickSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quickSort.QuickSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quickSort.ThreeWayQuickSort", "sort");
     }
 
     private static Comparable[] getArray() {
@@ -44,7 +44,7 @@ public class Main {
 
     }
 
-    private static void execute(Comparable[] arr, String className, String functionName) throws Exception {
+    private static void execute(Comparable[] arr, String className, String functionName) {
         new Thread(() -> {
             // 通过Java的反射机制，通过排序的类名，运行排序函数
             try {
@@ -73,9 +73,11 @@ public class Main {
 
     // 判断arr数组是否有序
     public static boolean isSorted(Comparable[] arr) {
-        for (int i = 0; i < arr.length - 1; i++)
-            if (arr[i].compareTo(arr[i + 1]) > 0)
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i].compareTo(arr[i + 1]) > 0) {
                 return false;
+            }
+        }
         return true;
     }
 

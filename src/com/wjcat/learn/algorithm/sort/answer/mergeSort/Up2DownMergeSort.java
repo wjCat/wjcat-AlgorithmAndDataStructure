@@ -1,6 +1,6 @@
-package com.wjcat.learn.algorithm.sort.mergeSort;
+package com.wjcat.learn.algorithm.sort.answer.mergeSort;
 
-import com.wjcat.learn.algorithm.sort.SortHelper;
+import com.wjcat.learn.algorithm.sort.answer.SortHelper;
 
 /**
  * @decription 自顶向下归并排序

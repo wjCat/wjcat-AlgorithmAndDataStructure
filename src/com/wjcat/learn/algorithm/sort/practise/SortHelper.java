@@ -1,11 +1,5 @@
-package com.wjcat.learn.algorithm.sort;
+package com.wjcat.learn.algorithm.sort.practise;
 
-import java.util.Arrays;
-
-/**
- * @decription @TODO
- * Created by 厕所里拉屎的猫 on 2019/6/23.
- */
 public class SortHelper {
 
     /**
@@ -32,22 +26,33 @@ public class SortHelper {
         array[j] = t;
     }
 
-    public static void merge(Comparable[] array, Comparable[] aux, int left, int mid, int right) {
-
+    /**
+     * 在已知左区间及右区间均为顺序数组，进行归并排序
+     *
+     * @param array 源数组
+     * @param left  左指针
+     * @param mid   中点
+     * @param right 右指针
+     */
+    public static void merge(Comparable[] array, int left, int mid, int right) {
+        Comparable[] aux = new Comparable[array.length];
         int i = left;
         int j = mid + 1;
 
         System.arraycopy(array, left, aux, left, right - left + 1);
 
-        for (int k = left; k <= right; k++)
-            if (i > mid)
+        for (int k = left; k <= right; k++) {
+            if (i > mid) {
                 array[k] = aux[j++];
-            else if (j > right)
+            } else if (j > right) {
                 array[k] = aux[i++];
-            else if (aux[i].compareTo(aux[j]) > 0)
+            } else if (aux[i].compareTo(aux[j]) > 0) {
                 array[k] = aux[j++];
-            else
+            } else {
                 array[k] = aux[i++];
+            }
+        }
+
     }
 
 }

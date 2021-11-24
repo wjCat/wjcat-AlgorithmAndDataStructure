@@ -1,7 +1,6 @@
-package com.wjcat.learn.algorithm.sort;
+package com.wjcat.learn.algorithm.sort.answer;
 
 import java.util.Arrays;
-import java.util.Random;
 
 /**
  * 冒泡排序

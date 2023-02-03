@@ -49,7 +49,12 @@ public class Solution1 {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(twoSum(new int[]{3, 2, 4}, 6)));
+//        System.out.println(Arrays.toString(twoSum(new int[]{3, 2, 4}, 6)));
+        int[] a = new int[]{0, 0, 0};
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(--a[i] == -1);
+        }
+        System.out.println(Arrays.toString(a));
     }
 
 }

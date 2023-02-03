@@ -1,7 +1,5 @@
 package com.wjcat.learn.leetcode;
 
-import com.sun.deploy.util.StringUtils;
-
 import java.util.*;
 
 public class Solution1622 {
@@ -106,7 +104,9 @@ public class Solution1622 {
         this.size = 0;
     }
 
-    public void append(int val) {
+    public void
+
+    append(int val) {
         this.data[size] = val;
         this.size++;
     }

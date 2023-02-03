@@ -15,7 +15,7 @@ public class InsertionSort {
 
     /**
      * 将传入的数组进行顺序排序
-     *
+     * 1, 3, 4, 5, 6, 2
      * @param array 需要排序的数组
      */
     public static void sortAsc(Comparable[] array) {

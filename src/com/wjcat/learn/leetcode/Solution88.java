@@ -24,6 +24,14 @@ import java.util.Arrays;
  */
 public class Solution88 {
 
+    public static void main(String[] args) {
+        Solution88 solution88 = new Solution88();
+        int[] nums1 = {1, 2, 3, 0, 0, 0};
+        int[] nums2 = {2, 5, 6};
+        solution88.merge(nums1, 3, nums2, 3);
+        System.out.println(Arrays.toString(nums1));
+    }
+
 //    public static void merge(int[] nums1, int m, int[] nums2, int n) {
 //        if (nums1.length == 0) return;
 //        if (nums2.length == 0) return;
@@ -45,7 +53,7 @@ public class Solution88 {
 //        System.out.println(Arrays.toString(result));
 //    }
 
-    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+    public void merge1(int[] nums1, int m, int[] nums2, int n) {
 
         int i = m - 1;
         int j = n - 1;
@@ -57,10 +65,12 @@ public class Solution88 {
         System.arraycopy(nums2, 0, nums1, 0, j + 1);
     }
 
-    public static void main(String[] args) {
-        int[] nums1 = {1, 2, 3, 0, 0, 0};
-        int[] nums2 = {2, 5, 6};
-        merge(nums1, 3, nums2, 3);
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1, j = n - 1, k = m + n - 1;
+        while(i >= 0 && j >= 0) {
+            nums1[k--] = nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];
+        }
+        System.arraycopy(nums2, 0, nums1, 0, j + 1);
     }
 
 }

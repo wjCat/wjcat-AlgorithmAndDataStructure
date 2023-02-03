@@ -145,11 +145,13 @@ public class LinkedList<E> {
 
         Node pre = this.dummyHead;
 
-        while (pre.next != null)
-            if (pre.next.element.equals(element))
+        while (pre.next != null) {
+            if (pre.next.element.equals(element)) {
                 break;
-            else
+            } else {
                 pre = pre.next;
+            }
+        }
 
         Node deleteNode = pre.next;
         if (deleteNode != null) {

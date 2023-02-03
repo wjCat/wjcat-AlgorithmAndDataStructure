@@ -20,13 +20,15 @@ public class Down2UpMergeSort {
 
         // Merge Sort Bottom Up 优化
         // 对于小数组, 使用插入排序优化
-        for (int i = 0; i < n; i += 16)
+        for (int i = 0; i < n; i += 16) {
             InsertionSort.sort(array, i, Math.min(i + 15, n - 1));
+        }
 
         for (int sz = 16; sz < n; sz += sz) {
             for (int i = 0; i < n - sz; i += sz + sz) {
-                if (array[i + sz - 1].compareTo(array[i + sz]) > 0)
+                if (SortHelper.less(array[i + sz], array[i + sz - 1])) {
                     SortHelper.merge(array, aux, i, i + sz - 1, Math.min(i + sz + sz - 1, n - 1));
+                }
             }
         }
     }

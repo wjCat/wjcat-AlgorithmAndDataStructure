@@ -30,6 +30,7 @@ public class Solution1622Temp extends Solution1622 {
     /**
      * 直接插入当前值数组，并将当前操作序号插入操作号数组
      */
+    @Override
     public void append(int val) {
         this.vals[this.valIndex] = val;
         this.opIds[this.valIndex] = this.opIndex;
@@ -39,6 +40,7 @@ public class Solution1622Temp extends Solution1622 {
     /**
      * 直接插入操作值和操作符数组
      */
+    @Override
     public void addAll(int inc) {
         this.opTypes[this.opIndex] = '+';
         this.opNums[this.opIndex] = inc;
@@ -48,6 +50,7 @@ public class Solution1622Temp extends Solution1622 {
     /**
      * 直接插入操作值和操作符数组
      */
+    @Override
     public void multAll(int m) {
         this.opTypes[this.opIndex] = '*';
         this.opNums[this.opIndex] = m;
@@ -57,6 +60,7 @@ public class Solution1622Temp extends Solution1622 {
     /**
      * 调用此方法时对结果进行计算，更新当前值，更新操作号
      */
+    @Override
     public int getIndex(int idx) {
         if (idx < this.valIndex) {
             //long类型避免溢出

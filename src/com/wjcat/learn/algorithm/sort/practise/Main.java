@@ -25,15 +25,15 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.BubbleSort", "sort");
-//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.BubbleSort", "sort2");
-//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.InsertionSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.BubbleSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.BubbleSort", "sort2");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.InsertionSort", "sortAsc");
         execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.SelectionSort", "sort");
-//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.mergeSort.Down2UpMergeSort", "sort");
-//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.mergeSort.Up2DownMergeSort", "sort");
-//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quickSort.DoubleWayQuickSort", "sort");
-//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quickSort.QuickSort", "sort");
-//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quickSort.ThreeWayQuickSort", "sort");
+//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.merge.Down2UpMergeSort", "sort");
+        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.merge.Up2DownMergeSort", "sort");
+//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quick.DoubleWayQuickSort", "sort");
+//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quick.QuickSort", "sort");
+//        execute(getArray(), "com.wjcat.learn.algorithm.sort.practise.quick.ThreeWayQuickSort", "sort");
     }
 
     private static Comparable[] getArray() {

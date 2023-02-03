@@ -11,7 +11,7 @@ public class BstSet<T extends Comparable<T>> implements Set<T> {
     BSTree<T> bst;
 
     public BstSet() {
-        this.bst = new BSTree<T>();
+        this.bst = new BSTree<>();
     }
 
     @Override

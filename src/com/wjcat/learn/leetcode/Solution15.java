@@ -1,15 +1,14 @@
 package com.wjcat.learn.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Solution15 {
 
-    public List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSum(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
-        List<List<Integer>> ans = new ArrayList<List<Integer>>();
+        List<List<Integer>> ans = new ArrayList<>();
         // 枚举 a
         for (int first = 0; first < n; ++first) {
             // 需要和上一次枚举的数不相同
@@ -35,7 +34,7 @@ public class Solution15 {
                     break;
                 }
                 if (nums[second] + nums[third] == target) {
-                    List<Integer> list = new ArrayList<Integer>();
+                    List<Integer> list = new ArrayList<>();
                     list.add(nums[first]);
                     list.add(nums[second]);
                     list.add(nums[third]);
@@ -44,6 +43,81 @@ public class Solution15 {
             }
         }
         return ans;
+    }
+
+    public static List<List<Integer>> threeSum1(int[] nums) {
+        int index = 0;
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<>();
+        if (nums[0] >= 0 || nums[nums.length - 1] <= 0) {
+            return res;
+        }
+        while (index < nums.length && nums[index] < 0) {
+            int tempTarget = -nums[index];
+            Map<Integer, Integer> tempMap = new HashMap<>(nums.length - index);
+            for (int k = index + 1; k < nums.length; k++) {
+                if (tempMap.containsKey(nums[k])) {
+                    List<Integer> l = new ArrayList<>();
+                    l.add(nums[index]);
+                    l.add(nums[k]);
+                    l.add(tempMap.get(nums[k]));
+                    l = l.stream().sorted().collect(Collectors.toList());
+                    if (!res.contains(l)) {
+                        res.add(l);
+                    }
+                }
+                tempMap.put(tempTarget - nums[k], nums[k]);
+            }
+            index++;
+        }
+        if (index < nums.length && nums[index] == 0 && index + 2 < nums.length && nums[index + 2] == 0) {
+            List<Integer> l = new ArrayList<>();
+            l.add(0);
+            l.add(0);
+            l.add(0);
+            res.add(l);
+        }
+        return res;
+    }
+
+    public static List<List<Integer>> threeSum2(int[] nums) {
+        Arrays.sort(nums);
+        List<Integer> temp = new ArrayList<>();
+        Map<Integer, List<Integer>> resMap = new HashMap<>();
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (temp.contains(nums[i])) {
+                continue;
+            }
+            temp.add(nums[i]);
+            for (int j = i + 1; j < nums.length; j++) {
+                if (!resMap.containsKey(nums[i] + nums[j])) {
+                    List<Integer> subList = new ArrayList<>();
+                    subList.add(i);
+                    subList.add(j);
+                    resMap.put(nums[i] + nums[j], subList);
+                }
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (resMap.containsKey(-nums[i])) {
+                List<Integer> subList = resMap.get(-nums[i]);
+                if (subList.get(1) <= i) {
+                    List<Integer> subRes = new ArrayList<>();
+                    subRes.add(nums[subList.get(0)]);
+                    subRes.add(nums[subList.get(1)]);
+                    subRes.add(nums[i]);
+                    res.add(subRes);
+                }
+            }
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        long start = System.currentTimeMillis();
+        threeSum2(new int[]{-1, 0, 1, 2, -1, -4}).forEach(System.out::println);
+        System.out.println(System.currentTimeMillis() - start);
     }
 
 }

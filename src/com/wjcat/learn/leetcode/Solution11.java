@@ -58,10 +58,22 @@ public class Solution11 {
         return res;
     }
 
+    public int maxArea4(int[] height) {
+        int left = 0, right = height.length - 1;
+        int max = 0;
+        while (left < right) {
+            boolean lb = height[left] > height[right];
+            max = Math.max(max, (right - left) * (lb ? height[right] : height[left]));
+            left = lb ? left : left + 1;
+            right = lb ? right - 1 : right;
+        }
+        return max;
+    }
+
 
     public static void main(String[] args) {
         Solution11 solution11 = new Solution11();
-        System.out.println(solution11.maxArea(new int[]{1, 2, 1}));
+        System.out.println(solution11.maxArea4(new int[]{1, 2, 1}));
     }
 
 }

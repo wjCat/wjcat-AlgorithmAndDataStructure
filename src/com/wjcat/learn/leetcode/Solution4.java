@@ -1,5 +1,8 @@
 package com.wjcat.learn.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @Description 4、寻找两个有序数组的中位数
  * 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
@@ -57,9 +60,54 @@ public class Solution4 {
         return aux;
     }
 
-    public static void main(String[] args) {
-        System.out.println(findMedianSortedArrays(new int[]{}, new int[]{3, 4}));
+    public static double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+        int length1 = nums1.length;
+        int length2 = nums2.length;
+        if ((length1 + length2) % 2 == 1) {
+            return doFind(nums1, nums2, 0, 0, (length1 + length2) / 2 + 1);
+        } else {
+            return (doFind(nums1, nums2, 0, 0, (length1 + length2) / 2) + doFind(nums1, nums2, 0, 0, (length1 + length2) / 2 + 1)) * 0.5;
+        }
+    }
 
+    private static double doFind(int[] nums1, int[] nums2, int aIndex, int bIndex, int k) {
+        if (aIndex >= nums1.length) {
+            return nums2[bIndex + k - 1];
+        }
+        if (bIndex >= nums2.length) {
+            return nums1[aIndex + k - 1];
+        }
+        if (k == 1) {
+            return Math.min(nums1[aIndex], nums2[bIndex]);
+        }
+
+        int temp = k / 2 - 1;
+
+        if (aIndex + temp >= nums1.length) {
+            if (nums1[nums1.length - 1] >= nums2[bIndex + temp]) {
+                return doFind(nums1, nums2, aIndex, bIndex + k / 2, k - k / 2);
+            } else {
+                return nums2[bIndex + (k - 1) - (nums1.length - aIndex)];
+            }
+        }
+
+        if (bIndex + temp >= nums2.length) {
+            if (nums2[nums2.length - 1] >= nums1[aIndex + temp]) {
+                return doFind(nums1, nums2, aIndex + k / 2, bIndex, k - k / 2);
+            } else {
+                return nums1[aIndex + (k - 1) - (nums2.length - bIndex)];
+            }
+        }
+
+        if (nums1[aIndex + temp] >= nums2[bIndex + temp]) {
+            return doFind(nums1, nums2, aIndex, bIndex + k / 2, k - k / 2);
+        } else {
+            return doFind(nums1, nums2, aIndex + k / 2, bIndex, k - k / 2);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(findMedianSortedArrays2(new int[]{10, 11, 12}, new int[]{4, 5, 6}));
     }
 
 }

@@ -1,5 +1,7 @@
 package com.wjcat.learn.leetcode;
 
+import java.util.Arrays;
+
 /**
  * @Description 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。
  * <p>
@@ -41,6 +43,29 @@ public class Solution27 {
                 i++;
         }
         return j;
+    }
+
+    public int removeElement1(int[] nums, int val) {
+        int l = 0;
+        int r = 0;
+        while (l <= r && r < nums.length) {
+            if (nums[r] != val) {
+                nums[l++] = nums[r];
+            }
+            r++;
+        }
+        System.out.println(l + 1);
+        return l + 1;
+    }
+
+    public static void main(String[] args) {
+        Solution27 solution27 = new Solution27();
+        int[] param = new int[]{3, 2, 2, 3};
+        solution27.removeElement1(param, 3);
+        int[] param2 = new int[]{3, 2, 2, 3};
+        solution27.removeElement(param2, 3);
+        System.out.println(Arrays.toString(param));
+        System.out.println(Arrays.toString(param2));
     }
 
 }

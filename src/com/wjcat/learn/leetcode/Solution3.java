@@ -72,24 +72,38 @@ public class Solution3 {
 
     // =============================================👇 @TODO 题解滑动窗口法 👇=============================================//
 
-    public int lengthOfLongestSubstring(String s) {
-        int n = s.length();
-        Set<Character> set = new HashSet<>();
-        int ans = 0, i = 0, j = 0;
-        while (i < n && j < n) {
-            // try to extend the range [i, j]
-            if (!set.contains(s.charAt(j))) {
-                set.add(s.charAt(j++));
-                ans = Math.max(ans, j - i);
-            } else {
-                set.remove(s.charAt(i++));
-            }
-        }
-        return ans;
-    }
+//    public int lengthOfLongestSubstring(String s) {
+//        int n = s.length();
+//        Set<Character> set = new HashSet<>();
+//        int ans = 0, i = 0, j = 0;
+//        while (i < n && j < n) {
+//            // try to extend the range [i, j]
+//            if (!set.contains(s.charAt(j))) {
+//                set.add(s.charAt(j++));
+//                ans = Math.max(ans, j - i);
+//            } else {
+//                set.remove(s.charAt(i++));
+//            }
+//        }
+//        return ans;
+//    }
 
     // =============================================👆 @TODO 题解滑动窗口法 👆=============================================//
 
+    public int lengthOfLongestSubstring(String s) {
+        char[] chars = s.toCharArray();
+        int[] temp = new int[128];
+        int l = 0, r = 0, res = 0;
+        while (r < chars.length) {
+            if (temp[chars[r]] > 0) {
+                res = Math.max(res, r - l);
+                l = Math.max(temp[chars[r]], l);
+            }
+            temp[chars[r]] = r + 1;
+            r++;
+        }
+        return Math.max(res, r - l);
+    }
 
     public static void main(String[] args) {
         Solution3 thirdSolution = new Solution3();
@@ -98,6 +112,7 @@ public class Solution3 {
         System.out.println(thirdSolution.lengthOfLongestSubstring("pwwkew"));
         System.out.println(thirdSolution.lengthOfLongestSubstring("au"));
         System.out.println(thirdSolution.lengthOfLongestSubstring("aab"));
+        System.out.println(thirdSolution.lengthOfLongestSubstring("abc"));
     }
 
 }
